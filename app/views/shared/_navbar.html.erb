@@ -23,12 +23,18 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
     <ul class="navbar-nav ml-2">
+    <% if !user_signed_in? %>
       <li class="nav-item">
         <%=link_to 'Log In', new_user_session_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
+        <%=link_to 'Register', user_registration_path, class: "nav-link" ,method: :delete %>
+      </li>
+      <%else%>
+      <li class="nav-item">
         <%=link_to 'Log Out', destroy_user_session_path, class: "nav-link" ,method: :delete %>
       </li>
+      <%end%>
     </ul>
   </div>
 </nav>
