@@ -20,6 +20,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1/edit
   def edit
+    authorize! :update, @recipe
   end
 
   # POST /recipes
