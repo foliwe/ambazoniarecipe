@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user! , except:[:index, :show]
-  before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource param_method: :my_sanitizer
 
   # GET /recipes
   # GET /recipes.json
@@ -20,13 +20,13 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1/edit
   def edit
-    authorize! :update, @recipe
+    @recipe = Recipe.find(params[:id])
   end
 
   # POST /recipes
   # POST /recipes.json
   def create
-    @recipe = current_user.recipes.build(recipe_params)
+    @recipe = current_user.recipes.build(my_sanitizer)
 
     respond_to do |format|
       if @recipe.save
@@ -42,8 +42,10 @@ class RecipesController < ApplicationController
   # PATCH/PUT /recipes/1
   # PATCH/PUT /recipes/1.json
   def update
+     authorize! :update, @recipe
+     @recipe = Recipe.find(params[:id])
     respond_to do |format|
-      if @recipe.update(recipe_params)
+      if @recipe.update(my_sanitizer)
         format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
         format.json { render :show, status: :ok, location: @recipe }
       else
@@ -56,6 +58,8 @@ class RecipesController < ApplicationController
   # DELETE /recipes/1
   # DELETE /recipes/1.json
   def destroy
+     authorize! :destroy, @recipe
+    @recipe = Recipe.find(params[:id])
     @recipe.destroy
     respond_to do |format|
       format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
@@ -70,7 +74,7 @@ class RecipesController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def recipe_params
+    def my_sanitizer
       params.require(:recipe).permit(:name, :summary, :description, :image, :user_id)
     end
 end

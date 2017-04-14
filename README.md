@@ -1,24 +1,11 @@
-# README
+# TO DOS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Create User profile Page to Display Only thier Recipes
 
-Things you may want to cover:
+## Create Home Page 
+## Implement Commenting on Recicpes
+## Implement Like and Unlike actions on Recipes 
+## Implement Rating On Recipes
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

@@ -2,6 +2,8 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    user ||= User.new
+
     can :update, Recipe do |recipe|
         recipe.user ==user
     end
@@ -12,6 +14,7 @@ class Ability
 
 
     can :create, Recipe
+    can :read, :all
 
     # Define abilities for the passed in user here. For example:
     #
