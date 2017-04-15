@@ -3,7 +3,7 @@ TODOS
 
 ## Create Home Controller With Profile action
 - [x] Create User profile Page to Display Only thier Recipes.
-- [ ] Redirect Signed in Users to Recipe Index Page.
+- [x] Redirect Signed in Users to Recipe Index Page.
 
 
 ## Features:
