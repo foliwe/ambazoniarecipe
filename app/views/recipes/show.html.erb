@@ -21,10 +21,19 @@
 </p>
 
 <% if can? :update, @recipe %>
-  <%= link_to 'Edit', edit_recipe_path(@recipe) %> <%end%>| 
+  <%= link_to 'Edit', edit_recipe_path(@recipe) %> |<%end%> 
 <% if can? :destroy, @recipe %>
 <%= link_to "Delete this Recipe", recipe_path(@recipe),
                                     method: :delete,
                                     data: { confirm: "Are you sure you want to delete this Recipe?"} %> <br>
 <%end%>
+
+<%=render 'comments/comments_form'%>
+
+<h5><%= link_to 'View comments', '#',id: "comments-link"%> </h5>
+<hr>
+
+<div id="comments">
+<%= render @recipe.comments %>
+</div>
 <%= link_to 'Back', recipes_path %>

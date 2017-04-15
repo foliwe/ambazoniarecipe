@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :comments
   resources :recipes
   devise_for :users
 
@@ -7,7 +8,7 @@ Rails.application.routes.draw do
     root 'recipes#index', as: :authenticated_root
   end
 
-  root "home#index"
+  #get 'recipes',to: "recipes#index"
   root 'home#index'
   get 'user/:id', to: 'home#profile'
 end
