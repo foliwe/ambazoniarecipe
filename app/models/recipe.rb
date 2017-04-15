@@ -2,6 +2,7 @@ class Recipe < ApplicationRecord
   belongs_to :user
   mount_uploader :image, ImageUploader
   validates_presence_of :name
+   validate :user_id
 
   validate :image_size
 

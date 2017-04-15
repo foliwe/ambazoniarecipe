@@ -1,5 +1,7 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user! , except:[:index, :show]
+   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+
   load_and_authorize_resource param_method: :my_sanitizer
 
   # GET /recipes
@@ -20,7 +22,6 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1/edit
   def edit
-    @recipe = Recipe.find(params[:id])
   end
 
   # POST /recipes
@@ -43,7 +44,6 @@ class RecipesController < ApplicationController
   # PATCH/PUT /recipes/1.json
   def update
      authorize! :update, @recipe
-     @recipe = Recipe.find(params[:id])
     respond_to do |format|
       if @recipe.update(my_sanitizer)
         format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
@@ -59,7 +59,6 @@ class RecipesController < ApplicationController
   # DELETE /recipes/1.json
   def destroy
      authorize! :destroy, @recipe
-    @recipe = Recipe.find(params[:id])
     @recipe.destroy
     respond_to do |format|
       format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
