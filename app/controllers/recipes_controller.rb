@@ -13,6 +13,7 @@ class RecipesController < ApplicationController
   # GET /recipes/1
   # GET /recipes/1.json
   def show
+    @recipe = Recipe.friendly.find(params[:id])
   end
 
   # GET /recipes/new
