@@ -21,7 +21,7 @@
 </p>
 
 <% if can? :update, @recipe %>
-  <%= link_to 'Edit', edit_recipe_path(@recipe) %> <%end%>| 
+  <%= link_to 'Edit', edit_recipe_path(@recipe) %> |<%end%>
 <% if can? :destroy, @recipe %>
 <%= link_to "Delete this Recipe", recipe_path(@recipe),
                                     method: :delete,

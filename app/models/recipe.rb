@@ -2,9 +2,10 @@ class Recipe < ApplicationRecord
   belongs_to :user
   mount_uploader :image, ImageUploader
   validates_presence_of :name
-   validate :user_id
+   validates_presence_of :user_id
 
-  validate :image_size
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 
 
   private

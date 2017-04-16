@@ -7,7 +7,7 @@ TODOS
 
 
 ## Features:
-
+- [x] Implement permalink for recipes.
 - [ ] Implement Commenting on Recicpes .
 - [ ] Implement Like and Unlike actions on Recipes .
 - [ ] Implement Rating On Recipes.
