@@ -1,6 +1,5 @@
 class Recipe < ApplicationRecord
   belongs_to :user
-  has_many :comments, dependent: :destroy
   mount_uploader :image, ImageUploader
   validates_presence_of :name
    validates_presence_of :user_id
