@@ -1,5 +1,6 @@
 class Recipe < ApplicationRecord
   belongs_to :user
+  has_many :comments, as: :commentable
   mount_uploader :image, ImageUploader
   validates_presence_of :name
    validates_presence_of :user_id
