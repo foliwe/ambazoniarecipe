@@ -11,8 +11,13 @@ TODOS
 ## Features:
 - [x] Implement permalink for recipes.
 - [x] Implement Commenting on Recicpes .
-- [ ] Implement Like and Unlike actions on Recipes .
-- [ ] Implement Rating On Recipes.
+- [ ] Add Details to Recipes.
+- [ ] Implement Search.
+
+
+## Gems
+-[ ] coocoon
+
 
 
 
@@ -23,3 +28,12 @@ TODOS
 
 
 ## Styling:
+
+
+
+
+
+## Optional
+- [ ] implementing printing of recipes
+- [ ] Implement Like and Unlike actions on Recipes .
+- [ ] Implement Rating On Recipes.
