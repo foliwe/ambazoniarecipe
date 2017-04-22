@@ -1,5 +1,8 @@
-<%= simple_form_for([commentable, Comment.new]) do |f| %>
-  <%= f.input :content %> <br>
-  <%= f.button :submit %> 
-  
-<%end%>
+<%= simple_form_for([@recipe, @recipe.comments.build],remote: true) do |f| %>
+  <p>
+    <%= f.input :content ,placeholder: "write a comment..."%>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

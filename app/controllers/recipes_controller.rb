@@ -75,6 +75,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def my_sanitizer
-      params.require(:recipe).permit(:name, :summary, :description, :image, :user_id)
+      params.require(:recipe).permit(:name, :summary, :description, :ingredients, :image, :user_id ,style_ids:[],)
     end
 end

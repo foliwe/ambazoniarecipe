@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :recipes do 
-    resources :comments, only: [:create], module: :recipes
+    resources :comments
   end
   devise_for :users
 

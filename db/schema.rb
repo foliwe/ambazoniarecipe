@@ -10,18 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170416233826) do
+ActiveRecord::Schema.define(version: 20170422003841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.string   "commentable_type"
-    t.integer  "commentable_id"
-    t.integer  "user_id"
     t.text     "content"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "recipe_id"
+    t.integer  "user_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -36,6 +35,21 @@ ActiveRecord::Schema.define(version: 20170416233826) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
   end
 
+  create_table "ingredients", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "recipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_ingredients_on_recipe_id", using: :btree
+  end
+
+  create_table "recipe_styles", force: :cascade do |t|
+    t.integer "recipe_id"
+    t.integer "style_id"
+    t.index ["recipe_id"], name: "index_recipe_styles_on_recipe_id", using: :btree
+    t.index ["style_id"], name: "index_recipe_styles_on_style_id", using: :btree
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.string   "name"
     t.string   "summary"
@@ -45,7 +59,12 @@ ActiveRecord::Schema.define(version: 20170416233826) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "slug"
+    t.text     "ingredients"
     t.index ["slug"], name: "index_recipes_on_slug", unique: true, using: :btree
+  end
+
+  create_table "styles", force: :cascade do |t|
+    t.string "name"
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,4 +85,7 @@ ActiveRecord::Schema.define(version: 20170416233826) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "ingredients", "recipes"
+  add_foreign_key "recipe_styles", "recipes"
+  add_foreign_key "recipe_styles", "styles"
 end
