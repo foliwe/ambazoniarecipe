@@ -26,6 +26,6 @@ end
 end
 
 puts '========================================='
-puts "4 users created !!"
+puts "4 styles created !!"
 puts "2 users created !!"
 puts "6 Recipes created !!"
