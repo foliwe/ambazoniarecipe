@@ -2,7 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
+    <%= f.input :name%>
     <%= f.input :summary %>
     <%= f.input :ingredients %>
     <%= f.input :description %>
@@ -11,7 +11,7 @@
     <%= f.hidden_field :image_cache %>
   </div>
   <div class="form-inputs">
-     <%= f.association :styles, input_html: { id: 'selectized'} ,placeholder: "select styles......" %>
+     <%= f.association :styles, label: "Contains", input_html: { id: 'selectized'} ,placeholder: "select styles......" %>
   </div>
 
   <div class="form-actions">

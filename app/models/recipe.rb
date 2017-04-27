@@ -6,6 +6,7 @@ class Recipe < ApplicationRecord
   mount_uploader :image, ImageUploader
   validates_presence_of :name
    validates_presence_of :user_id
+   default_scope{order('created_at desc')}
 
   validate :user_id
   validate :image_size
