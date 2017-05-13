@@ -5,7 +5,10 @@
 //   height: 80vh;
 //   background-color: blue;
 // }
-
+body{
+    margin: 0px;
+    padding: 0px;
+}
 
 
 .navbar-toggler {
@@ -34,4 +37,60 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+section{
+    margin-top: 60px;
+}
+
+section.featured{
+    position: relative;
+    background-color: #34495e;
+    text-align: center;
+    //height: 150px;
+
+}
+    section.inspired{
+    background-color: #ecf0f1;
+    height: 100vh;
+    margin-top: 0px;
+    position: relative;
+}
+
+
+@media (min-width: 992px)
+ { 
+section.featured{
+    background-color: #34495e;
+    text-align: center;
+    text-align: center;
+    padding: 40px 0px 40px 0px;
+
+    img {
+    border-style: none;
+    position: absolute;
+    z-index: 10;
+    bottom: -3em;
+    left: 50em;
+}
+
+    }
+}
+
+@media (min-width: 575px)
+ { 
+section.featured{
+    background-color: #34495e;
+    text-align: center;
+    text-align: center;
+    //padding: 40px 0px 40px 0px;
+
+    img {
+    border-style: none;
+    position: absolute;
+    z-index: 10;
+    bottom: -3em;
+    left: 50em;
+}
+
+    }
 }

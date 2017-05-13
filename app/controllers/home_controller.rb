@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   def index
-    @users = User.all
+    @recipes = Recipe.all.limit(1).order('created_at desc')
   end
 
   def profile

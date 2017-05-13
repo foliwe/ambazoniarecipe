@@ -1,5 +1,5 @@
-foliwe = User.create!(name: "Foliwe" ,email: "foliwe@example.com", password: "password")
-akuma = User.create!(name: "Akuma", email: "akuma@example.com", password: "password")
+foliwe = User.create!(name: "Foliwe" ,email: "foliwe@live.com", password: "password")
+clovis = User.create!(name: "Akuma", email: "clovisnzodom@outlook.com", password: "password")
 
 3.times do
   Recipe.create!(
@@ -15,7 +15,7 @@ end
     name: Faker::Lorem.sentence,
     summary: Faker::Lorem.sentence(3),
     description: Faker::Lorem.paragraphs,
-    user_id: akuma.id
+    user_id: clovis.id
     )
 end
 
